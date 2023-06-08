@@ -1,17 +1,8 @@
 const evaluateExpressions = require("./evalu_math_expression.js");
 
 describe("evaluateExpressions", () => {
-  // Mocking the axios.post function
-  jest.mock("axios", () => ({
-    post: jest.fn(() =>
-      Promise.resolve({
-        data: { result: [8, 2, 3, "Error: Complex number"] },
-      })
-    ),
-  }));
-
   // Test case 1
-  it("evaluates expressions correctly", async () => {
+  it("Is evaluates expressions correctly", async () => {
     const expressions = [
       "2 * 4 * 4",
       "5 / (7 - 5)",
@@ -25,7 +16,7 @@ describe("evaluateExpressions", () => {
   });
 
   // Test case 2
-  it("handles API errors correct way", async () => {
+  it("Is it handles API errors in a correct way", async () => {
     const expressions = ["1 +"];
 
     const results = await evaluateExpressions(expressions);

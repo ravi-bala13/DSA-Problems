@@ -1,13 +1,15 @@
 const getBiasedEvent = require("./find_probability_biased.js");
 
 describe("getBiasedEvent", () => {
-  it("returns the correct outcome with biased probabilities", () => {
+  // Test case 1
+  it("returns the correct outcome for Flipping of a coin", () => {
     const outcomes = [{ Head: 65 }, { Tail: 35 }];
     const result = getBiasedEvent(outcomes);
     expect(["Head", "Tail"]).toContain(result);
   });
 
-  it("returns the correct outcome with multiple outcomes and probabilities", () => {
+  // Test case 2
+  it("returns the correct outcome for Rolling of a six-faced biased dice", () => {
     const outcomes = [
       { 1: 10 },
       { 2: 30 },

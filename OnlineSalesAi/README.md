@@ -25,5 +25,5 @@ npx jest
 
 ## used dependencies
 
--npm i axios
--npm i jest
+- npm i axios
+- npm i jest
