@@ -2,6 +2,11 @@ const { default: axios } = require("axios");
 
 const API_ENDPOINT = "http://api.mathjs.org/v4/";
 
+/**
+ *
+ * @param {array of string} expressions
+ * @returns Promise
+ */
 async function evaluateExpressions(expressions) {
   try {
     const response = await axios.post(API_ENDPOINT, {
@@ -11,12 +16,11 @@ async function evaluateExpressions(expressions) {
     let { result } = response.data;
     return result;
   } catch (error) {
-    console.log("An error occurred:", error);
+    console.log("Error in evaluateExpressions:", error);
     return null;
   }
 }
 
-// Usage example
 const expressions = [
   "2 * 4 * 4",
   "5 / (7 - 5)",
@@ -31,3 +35,4 @@ evaluateExpressions(expressions).then((results) => {
     console.log(`${each} => ${results[i++]}`);
   });
 });
+module.exports = evaluateExpressions;

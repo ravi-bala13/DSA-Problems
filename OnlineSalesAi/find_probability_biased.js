@@ -1,17 +1,17 @@
-function getBiasedEvent(outcomes) {
+function getBiasedEvent(inputList) {
   let totalProbability = 0;
 
   // To get total probability.
-  for (const item of outcomes) {
+  for (const item of inputList) {
     const key = Object.keys(item)[0];
     totalProbability += item[key];
   }
 
-  // Generate a random number between 0 and the total probability(100).
+  // Generate a random number between 0 and the total probability(ie.- 100).
   let randomNumber = Math.random() * totalProbability;
 
-  // Iterate over the outcomes and find in which part the reandom number resides
-  for (const item of outcomes) {
+  // Iterate over the inputList and find in which part the random number resides
+  for (const item of inputList) {
     const key = Object.keys(item)[0];
     if (randomNumber <= item[key]) {
       return key;
@@ -31,12 +31,13 @@ const input2 = [
   { 6: 0 },
 ];
 
-myFunction(input1);
-myFunction(input2);
+main(input1);
+main(input2);
 
-function myFunction(input) {
+function main(input) {
   let obj = {};
   for (let item of input) {
+    // only one key in item
     let key = Object.keys(item)[0];
     if (obj[key] == undefined) {
       obj[key] = 0;
@@ -50,3 +51,5 @@ function myFunction(input) {
   }
   console.log("obj:", obj);
 }
+
+module.exports = getBiasedEvent;
